@@ -58,14 +58,14 @@ class SimpleLanguageTest extends TestCase
 
         $this->assertMatchesRegularExpression('/^[a-zA-Z]$/u', $faker->alphabet(1));
         $this->assertMatchesRegularExpression('/^[a-zA-Z]{10}$/u', $faker->alphabet(10));
-        $this->assertMatchesRegularExpression('/^[a-zA-Z0-9]{10}$/u', $faker->alphabetWithNumber(10));
+        $this->assertMatchesRegularExpression('/^[a-zA-Z0-9]{10}$/u', $faker->alphabet_with_number(10));
 
         // 全角
-        $this->assertMatchesRegularExpression('/^[Ａ-Ｚａ-ｚ]$/u', $faker->zenkakuAlphabet(1));
-        $this->assertMatchesRegularExpression('/^[Ａ-Ｚａ-ｚ]{10}$/u', $faker->zenkakuAlphabet(10));
+        $this->assertMatchesRegularExpression('/^[Ａ-Ｚａ-ｚ]$/u', $faker->zenkaku_alphabet(1));
+        $this->assertMatchesRegularExpression('/^[Ａ-Ｚａ-ｚ]{10}$/u', $faker->zenkaku_alphabet(10));
 
         // 全角数字つき
-        $this->assertMatchesRegularExpression('/^[Ａ-Ｚａ-ｚ０-９]$/u', $faker->zenkakuAlphabet(1));
-        $this->assertMatchesRegularExpression('/^[Ａ-Ｚａ-ｚ０-９]{10}$/u', $faker->zenkakuAlphabet(10));
+        $this->assertMatchesRegularExpression('/^[Ａ-Ｚａ-ｚ０-９]$/u', $faker->zenkaku_alphabet_with_number(1));
+        $this->assertMatchesRegularExpression('/^[Ａ-Ｚａ-ｚ０-９]{10}$/u', $faker->zenkaku_alphabet_with_number(10));
     }
 }

@@ -38,7 +38,10 @@ Faker にいくつかの追加機能を提供するためのライブラリで�
 > faker()->alphabet
 A
 
-> faker()->alphabetWithNumber(10)
+> faker()->alphabet_with_number(10)
+Z2cOfHAGJr
+
+> faker()->zenkaku_alphabet_with_number(10)
 Z2cOfHAGJr
 ```
 
