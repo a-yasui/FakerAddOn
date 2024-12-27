@@ -23,13 +23,23 @@
 > faker()->full_zenkaku_hira_gana(10)
 づとぉそぎだぢけめゎ
 
+> faker()->kata_kana
+ニ
+
+> faker()->kata_kana(10)
+オカデウオツズグガネ
+
+> faker()->zenkaku_kata_kana(10)
+オカデウオツズグガネ
 
 > faker()->kata_kana
 アイウエオ
 
-> faker()->alphabed
-AbdEFgGp
+> faker()->alphabet
+A
 
+> faker()->alphabetWithNumber(10)
+Z2cOfHAGJr
 ```
 
 ## メソッド
@@ -44,4 +54,15 @@ AbdEFgGp
 
 含まれている文字:「ぁぃぅぇぉゃゅょっゎ」「ゔ」「ゟ」「ゝゞ」「ゐゑ」「ゕゖ」
 
+### kata_kana / zenkaku_kata_kana
 
+一般的な全角カタカナを返します。
+
+### alphabet / alphabetWithNumber
+
+アルファベットを返します。`alphabetWithNumber`は数字も含めた文字列を返します。
+
+
+# Licenses
+
+MIT License
