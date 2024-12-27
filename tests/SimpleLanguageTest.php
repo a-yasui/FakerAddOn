@@ -67,5 +67,7 @@ class SimpleLanguageTest extends TestCase
         // 全角数字つき
         $this->assertMatchesRegularExpression('/^[Ａ-Ｚａ-ｚ０-９]$/u', $faker->zenkaku_alphabet_with_number(1));
         $this->assertMatchesRegularExpression('/^[Ａ-Ｚａ-ｚ０-９]{10}$/u', $faker->zenkaku_alphabet_with_number(10));
+
+        dump($faker->full_han_kata_kana(10));
     }
 }

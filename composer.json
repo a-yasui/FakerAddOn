@@ -11,6 +11,11 @@
     "phpunit/phpunit": "^9.5.26",
     "symfony/var-dumper": "^5.4.48"
   },
+  "keywords": [
+    "Faker",
+    "data",
+    "tests"
+  ],
   "license": "MIT",
   "autoload": {
     "psr-4": {

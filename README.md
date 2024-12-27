@@ -5,47 +5,41 @@ Faker にいくつかの追加機能を提供するためのライブラリで�
 ## 使い方
 
 ```php
-> $faker = \Faker\Factory::create();
-> $faker->addProvider(new \Ayasui\AddOn\Provider\Japanese($faker));
+<?php
 
-> faker()->hira_gana
-あ
+// コード例
+$faker = \Faker\Factory::create();
+$faker->addProvider(new \Ayasui\AddOn\Provider\Japanese($faker));
 
-> faker()->hira_gana(10)
-たろがぬべにぽぞやも
+// ひらがな
+echo $faker->hira_gana;        // あ
+echo $faker->hira_gana(10);    // たろがぬべにぽぞやも
 
-> faker()->zenkaku_hira_gana
-ゔ
+// 全角ひらがな
+echo $faker->zenkaku_hira_gana;        // ゔ
+echo $faker->zenkaku_hira_gana(10);    // うからこぶぼわえぞぞ
 
-> faker()->zenkaku_hira_gana(10)
-うからこぶぼわえぞぞ
+// 全角ひらがな（フル）
+echo $faker->full_zenkaku_hira_gana(10);    // づとぉそぎだぢけめゎ
 
-> faker()->full_zenkaku_hira_gana(10)
-づとぉそぎだぢけめゎ
+// カタカナ
+echo $faker->kata_kana;        // ツ
+echo $faker->kata_kana(10);    // オカデウオツズグガネ
 
-> faker()->kata_kana
-ツ
+// 半角カタカナ
+echo $faker->han_kata_kana(10);         // ﾕｺｺｦﾙﾗｽﾒｹｸ
+echo $faker->full_han_kata_kana(10);    // ｻｪｷﾁｧﾑｩﾚﾋﾃ
 
-> faker()->kata_kana(10)
-オカデウオツズグガネ
+// アルファベット
+echo $faker->alphabet;               // A
+echo $faker->alphabet_with_number(10);   // Z2cOfHAGJr
 
-> faker()->zenkaku_kata_kana(10)
-オカデウオツズグガネ
-
-> faker()->kata_kana
-アイウエオ
-
-> faker()->alphabet
-A
-
-> faker()->alphabet_with_number(10)
-Z2cOfHAGJr
-
-> faker()->zenkaku_alphabet_with_number(10)
-Z2cOfHAGJr
+// 全角アルファベット
+echo $faker->zenkaku_alphabet(10);        // ＢＸＥｄｗｇＹｇＫＫ
+echo $faker->zenkaku_alphabet_with_number(10);    // ＪＵＦ８Ｕ０ｊｊＵＺ
 ```
 
-## メソッド
+## Methods
 
 ### hira_gana / zenkaku_hira_gana
 
