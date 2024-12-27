@@ -37,6 +37,20 @@ class SimpleLanguageTest extends TestCase
         $this->assertMatchesRegularExpression('/^[\x{30A1}-\x{30FF}]{10}$/u', $faker->full_zenkaku_kata_kana(10));
     }
 
+    public function test_han_kata_kana()
+    {
+        $faker = new \Faker\Generator();
+        $faker->addProvider(new SimpleLanguage($faker));
+
+        $this->assertMatchesRegularExpression('/^[\x{FF66}\x{FF71}-\x{FF9D}]$/u', $faker->han_kata_kana(1));
+        $this->assertMatchesRegularExpression('/^[\x{FF66}\x{FF71}-\x{FF9D}]{10}$/u', $faker->han_kata_kana(10));
+
+        // check/check/check
+        $this->assertMatchesRegularExpression('/^[\x{FF66}-\x{FF9F}]{10}$/u', $faker->full_han_kata_kana(10));
+        $this->assertMatchesRegularExpression('/^[\x{FF66}-\x{FF9F}]{10}$/u', $faker->full_han_kata_kana(10));
+        $this->assertMatchesRegularExpression('/^[\x{FF66}-\x{FF9F}]{10}$/u', $faker->full_han_kata_kana(10));
+    }
+
     public function test_alphabets()
     {
         $faker = new \Faker\Generator();
@@ -46,6 +60,12 @@ class SimpleLanguageTest extends TestCase
         $this->assertMatchesRegularExpression('/^[a-zA-Z]{10}$/u', $faker->alphabet(10));
         $this->assertMatchesRegularExpression('/^[a-zA-Z0-9]{10}$/u', $faker->alphabetWithNumber(10));
 
-        dump($faker->alphabetWithNumber(10));
+        // 全角
+        $this->assertMatchesRegularExpression('/^[Ａ-Ｚａ-ｚ]$/u', $faker->zenkakuAlphabet(1));
+        $this->assertMatchesRegularExpression('/^[Ａ-Ｚａ-ｚ]{10}$/u', $faker->zenkakuAlphabet(10));
+
+        // 全角数字つき
+        $this->assertMatchesRegularExpression('/^[Ａ-Ｚａ-ｚ０-９]$/u', $faker->zenkakuAlphabet(1));
+        $this->assertMatchesRegularExpression('/^[Ａ-Ｚａ-ｚ０-９]{10}$/u', $faker->zenkakuAlphabet(10));
     }
 }

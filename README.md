@@ -1,6 +1,6 @@
 # Faker AddOn
 
-いくつかの追加機能を提供するためのライブラリです。
+Faker にいくつかの追加機能を提供するためのライブラリです。
 
 ## 使い方
 
@@ -24,7 +24,7 @@
 づとぉそぎだぢけめゎ
 
 > faker()->kata_kana
-ニ
+ツ
 
 > faker()->kata_kana(10)
 オカデウオツズグガネ
@@ -58,9 +58,21 @@ Z2cOfHAGJr
 
 一般的な全角カタカナを返します。
 
-### alphabet / alphabetWithNumber
+### full_zenkaku_kata_kana
 
-アルファベットを返します。`alphabetWithNumber`は数字も含めた文字列を返します。
+全角カタカナを返します。ただし、いくつか普段は使わない文字が含まれているため、注意してください。
+
+含まれている文字:「ァィゥェォャュョッヮ」「ヵヶ」「ヴ」「ヿ」「ヽヾ」「ヰヱ」「ヵヶ」等
+
+### han_kata_kana / full_han_kata_kana
+
+半角カタカナを返します。
+
+full_han_kata_kana は「ｧ」など小文字の文字も含まれます。
+
+### alphabet / alphabet_with_number / zenkaku_alphabet / zenkaku_alphabet_with_number
+
+アルファベットを返します。`alphabet_with_number`/`zenkaku_alphabet_with_number` は数字も含めた文字列を返します。
 
 
 # Licenses

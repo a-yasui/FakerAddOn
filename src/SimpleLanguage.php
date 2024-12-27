@@ -87,6 +87,9 @@ class SimpleLanguage extends Base
         return static::__makeString($words, $wordcount);
     }
 
+    /**
+     * @example 'カタカナ'
+     */
     public static function kata_kana(int $wordcount = 4)
     {
         if ($wordcount < 1) {
@@ -101,11 +104,19 @@ class SimpleLanguage extends Base
         return static::__makeString($words, $wordcount);
     }
 
+    /**
+     * @example 'カタカナ'
+     */
     public static function zenkaku_kata_kana(int $wordcount = 4)
     {
         return static::kata_kana($wordcount);
     }
 
+    /**
+     * 広域な全角カタカナ
+     *
+     * @example 'ヲァィゥェォカガキギ'
+     */
     public static function full_zenkaku_kata_kana(int $wordcount = 4)
     {
         if ($wordcount < 1) {
@@ -121,6 +132,42 @@ class SimpleLanguage extends Base
         return static::__makeString($words, $wordcount);
     }
 
+    /**
+     * よく使う半角カタカナ
+     *
+     * @example ｧｱｲｳｴｵｶｷｸｹｺ
+     */
+    public static function han_kata_kana(int $wordcount = 4)
+    {
+        if($wordcount < 1) {
+            throw new \InvalidArgumentException('Word count must be greater than 0');
+        }
+
+        // ｱ(0xFF71) 〜 ﾝ(0xFF9D) まで有効
+        $words = range(0xFF71, 0xFF9D);
+        $words[] = 0xFF66; // ｦ
+        return static::__makeString($words, $wordcount);
+    }
+
+    /**
+     * あんまり使わない半角カタカナ
+     *
+     * @example 'ｧｾﾉｾｰﾀｨｼﾘﾅ'
+     */
+    public static function full_han_kata_kana(int $wordcount = 4)
+    {
+        if($wordcount < 1) {
+            throw new \InvalidArgumentException('Word count must be greater than 0');
+        }
+
+        // ｦ(0xFF66) 〜 ﾝ(0xFF9D) まで有効
+        $words = range(0xFF66, 0xFF9D);
+        return static::__makeString($words, $wordcount);
+    }
+
+    /**
+     * @example 'abcdef'
+     */
     public static function alphabet(int $wordcount = 1)
     {
         if($wordcount < 1) {
@@ -134,7 +181,10 @@ class SimpleLanguage extends Base
         return static::__makeString($words, $wordcount);
     }
 
-    public static function alphabetWithNumber(int $wordcount = 1)
+    /**
+     * @example 'abcdef123'
+     */
+    public static function alphabet_with_number(int $wordcount = 1)
     {
         if($wordcount < 1) {
             throw new \InvalidArgumentException('Word count must be greater than 0');
@@ -147,4 +197,33 @@ class SimpleLanguage extends Base
 
         return static::__makeString($words, $wordcount);
     }
+
+    /**
+     * 大文字小文字を含めた全角アルファベット
+     */
+    public static function zenkaku_alphabet(int $wordcount = 1)
+    {
+        if($wordcount < 1) {
+            throw new \InvalidArgumentException('Word count must be greater than 0');
+        }
+
+        // 0xFF21 → 0xFF3A, 0xFF41 → 0xFF5A
+        $words = range(0xFF21, 0xFF3A);
+        $words = array_merge($words, range(0xFF41, 0xFF5A));
+        return static::__makeString($words, $wordcount);
+    }
+
+    public static function zenkaku_alphabet_with_number(int $wordcount =1)
+    {
+        if($wordcount < 1) {
+            throw new \InvalidArgumentException('Word count must be greater than 0');
+        }
+
+        // 0xFF21 → 0xFF3A, 0xFF41 → 0xFF5A, 0xFF10 → 0xFF19
+        $words = range(0xFF21, 0xFF3A);
+        $words = array_merge($words, range(0xFF41, 0xFF5A));
+        $words = array_merge($words, range(0xFF10, 0xFF19));
+        return static::__makeString($words, $wordcount);
+    }
+
 }
